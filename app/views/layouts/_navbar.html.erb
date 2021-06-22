@@ -1,0 +1,30 @@
+<header class="p-3 bg-dark text-white">
+
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <%= link_to "Events", events_path, class: 'nav-link px-2 text-white' if can? :index, Event %>
+          <%= link_to "Categories", categories_path, class: 'nav-link px-2 text-white' if can? :index, Category %>
+          <%= link_to "Themes", themes_path, class: 'nav-link px-2 text-white' if can? :index, Theme %>
+          <%= link_to "Meets", meets_path, class: 'nav-link px-2 text-white' if can? :index, Meet %>
+          <%= link_to "Speakers", speakers_path, class: 'nav-link px-2 text-white' if can? :index, Speaker %>
+          <%= link_to "Inscriptions", inscriptions_path, class: 'nav-link px-2 text-white' if can? :index, Inscription %>
+      </ul>
+    
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="/events" method="get">         
+            <input type="text" class="form-control form-control-dark" placeholder="Search Events" name="filter" value="" aria-label="Search"/>
+        </form>
+
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"></form>
+          
+          <div class="text-end">
+            <% if user_signed_in? %>
+              Logged in as <strong><%= current_user.email %></strong>.
+              <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-outline-light me-2' %> |
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-warning'  %>
+            <% else %>
+              <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-outline-light me-2'  %> |
+              <%= link_to "Login", new_user_session_path, :class => 'btn btn-warning'  %>
+            <% end %>
+          </div>
+    </div>
+</header>

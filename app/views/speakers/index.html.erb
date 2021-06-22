@@ -1,0 +1,32 @@
+<br>
+
+<h1>Speakers</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Category</th>
+      <th scope="col">University</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @speakers.each do |speaker| %>
+      <tr>
+          <td scope="row"><%= speaker.first_name %></td>
+          <td scope="row"><%= speaker.last_name %></td>
+          <td scope="row"><%= speaker.category.name %></td>
+          <td scope="row"><%= speaker.university %></td>
+          <td><%= link_to 'Show', speaker %></td>
+          <td><%= link_to 'Edit', edit_speaker_path(speaker) %></td>
+          <td><%= link_to 'Destroy', speaker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @speakers %>
+<br>
+
+<%= link_to 'New Speaker', new_speaker_path, class: 'btn btn-primary' %>

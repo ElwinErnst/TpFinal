@@ -1,0 +1,34 @@
+<br>
+
+<p>
+  <strong>Name:</strong>
+  <%= @meet.name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @meet.date %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @meet.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @meet.end_time %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @meet.event.name %>
+</p>
+
+<p>
+  <strong>Speaker:</strong>
+  <%= @meet.speaker.last_name %>
+</p>
+
+<%= link_to 'Edit', edit_meet_path(@meet), class: 'btn btn-primary' if can? :edit, Meet %> |
+<%= link_to 'Back', meets_path, class: 'btn btn-secondary'%>

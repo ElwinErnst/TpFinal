@@ -1,0 +1,23 @@
+<br>
+<p>
+  <strong>State:</strong>
+  <%= @inscription.state %>
+</p>
+
+<p>
+  <strong>Payment:</strong>
+  <%= @inscription.payment %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @inscription.event.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @inscription.user.email %>
+</p>
+
+<%= link_to 'Edit', edit_inscription_path(@inscription), class: 'btn btn-primary' %> |
+<%= link_to 'Back', inscriptions_path, class: 'btn btn-secondary' %>

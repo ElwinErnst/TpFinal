@@ -1,0 +1,19 @@
+<br>
+
+<p>
+  <strong>Name:</strong>
+  <%= @theme.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @theme.description %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @theme.category_id %>
+</p>
+
+<%= link_to 'Edit', edit_theme_path(@theme), class: 'btn btn-primary' %> |
+<%= link_to 'Back', themes_path, class: 'btn btn-secondary' %>

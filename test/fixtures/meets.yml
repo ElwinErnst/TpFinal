@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  date: 2021-06-20
+  start_time: 2021-06-20 17:51:49
+  end_time: 2021-06-20 17:51:49
+  event: one
+  speaker: one
+
+two:
+  name: MyString
+  date: 2021-06-20
+  start_time: 2021-06-20 17:51:49
+  end_time: 2021-06-20 17:51:49
+  event: two
+  speaker: two

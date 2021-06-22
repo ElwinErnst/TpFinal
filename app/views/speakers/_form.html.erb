@@ -1,0 +1,48 @@
+<%= form_with(model: speaker) do |form| %>
+  <% if speaker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(speaker.errors.count, "error") %> prohibited this speaker from being saved:</h2>
+
+      <ul>
+        <% speaker.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %> <br>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %> <br>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :biography %> <br>
+    <%= form.text_area :biography %>
+  </div>
+
+  <div class="field">
+    <%= form.label :work_experience %> <br>
+    <%= form.text_area :work_experience %>
+  </div>
+
+  <div class="field">
+    <%= form.label :university %> <br>
+    <%= form.text_field :university %>
+  </div>
+
+  <div class="field"> <br>
+    <%= form.label :category_id %> <br>
+    <%= form.collection_select(:category_id, Category.all, :id, :name)  %>
+  </div>
+
+  <div class="actions"> <br>  
+    <%= form.submit class: 'btn btn-primary'%>
+    <%= link_to 'Back', speakers_path, class: 'btn btn-secondary' %>
+  </div>
+<% end %>

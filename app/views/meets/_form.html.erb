@@ -1,0 +1,48 @@
+<%= form_with(model: meet) do |form| %>
+  <% if meet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meet.errors.count, "error") %> prohibited this meet from being saved:</h2>
+
+      <ul>
+        <% meet.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %> <br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %> <br>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_time %> <br>
+    <%= form.time_select :start_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_time %> <br>
+    <%= form.time_select :end_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :event_id %> <br>
+    <%= form.collection_select(:event_id, Event.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :speaker_id %> <br>
+    <%= form.collection_select(:speaker_id, Speaker.all, :id, :last_name)%>
+  </div>
+
+  <div class="actions"> <br>
+    <%= form.submit class: 'btn btn-primary' if can? :create, Meet %>
+    <%= link_to 'Back', meets_path, class: 'btn btn-secondary' %>
+  </div>
+<% end %>
